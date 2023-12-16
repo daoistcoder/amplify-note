@@ -6,10 +6,13 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { Button, Flex, Grid, TextField, Icon } from "@aws-amplify/ui-react";
+import { Button, Flex, Grid, TextField } from "@aws-amplify/ui-react";
 import { fetchByPath, getOverrideProps, validateField } from "./utils";
 import { generateClient } from "aws-amplify/api";
 import { createNote } from "../graphql/mutations";
+
+import { CloseIcon } from "../App";
+
 const client = generateClient();
 export default function NoteCreateForm(props) {
   const {
@@ -124,6 +127,15 @@ export default function NoteCreateForm(props) {
       {...getOverrideProps(overrides, "NoteCreateForm")}
       {...rest}
     >
+      <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+        <Button 
+          style={{ padding: '3px 1px 1px 6px' }}
+          {...getOverrideProps(overrides, "NoteCreateFormCloseBtn")}
+        >
+          <CloseIcon />
+        </Button>
+      </div>
+
       <TextField
         label="Title"
         isRequired={false}
@@ -152,6 +164,7 @@ export default function NoteCreateForm(props) {
       ></TextField>
       <TextField
         label="Text"
+        style={{ height: '10vh'}}
         isRequired={false}
         isReadOnly={false}
         value={text}
