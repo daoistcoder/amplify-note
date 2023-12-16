@@ -9,7 +9,7 @@ import * as React from "react";
 import { listNotes } from "../graphql/queries";
 import SocialPost from "./SocialPost";
 import { getOverrideProps } from "./utils";
-import { Collection, Pagination, Placeholder, Button } from "@aws-amplify/ui-react";
+import { Collection, Pagination, Placeholder } from "@aws-amplify/ui-react";
 import { generateClient } from "aws-amplify/api";
 const nextToken = {};
 const apiCache = {};
@@ -79,13 +79,6 @@ export default function SocialPostCollection(props) {
   }, [pageIndex, maxViewed, setMaxViewed]);
   return (
     <div>
-      <Button 
-        variation="primary"
-        style={{ position: 'absolute', right: '23%', top: '12%' }}
-        {...getOverrideProps(overrides, "AddPostBtn")}
-      >
-        Add New Post
-      </Button>
       <Collection
         type="list"
         isSearchable="true"

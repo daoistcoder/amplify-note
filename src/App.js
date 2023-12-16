@@ -1,11 +1,11 @@
-import { SocialPostCollection, NavBarHeader, NoteCreateForm, NoteUpdateForm } from './ui-components';
+import { SocialPostCollection, NavBarHeader2, NoteCreateForm, NoteUpdateForm } from './ui-components';
 // import { Icon } from "@aws-amplify/ui-react"; - to be used in future
 // import { HiMiniXMark } from "react-icons/hi2"; - to be used in future
 import { useState } from 'react';
 
 import { withAuthenticator } from '@aws-amplify/ui-react'
 
-function App() {
+function App({ signOut }) {
   // using useState hook show modals
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [showUpdateModal, setShowUpdateModal] = useState(false);
@@ -13,20 +13,28 @@ function App() {
 
   return (
     <div style={{ backgroundColor: '#F5F5F5' }}>
-      <NavBarHeader width={'100%'} marginBottom={'20px'} />
+      <NavBarHeader2
+        width={'100%'}
+        marginBottom={'20px'}
+        overrides={{
+          Button39493466: {
+            onClick: () => {
+              setShowCreateModal(true);
+              console.log('setShowCreateModal triggered');
+            }
+          },
+          Button39493467: {
+            onClick: () => {
+              signOut();
+              console.log('signOut triggered');
+            }
+          }
+        }} />
       <div className='container'>
-        <SocialPostCollection 
-          overrides={{
-              AddPostBtn: {
-                onClick: () => {
-                  setShowCreateModal(true);
-                  console.log('setShowCreateModal triggered');
-                }
-              }
-            }}
-          overrideItems={({item, idx}) => {
+        <SocialPostCollection
+          overrideItems={({ item, idx }) => {
             return {
-              overrides:{
+              overrides: {
                 SocialPostEditBtn: {
                   onClick: () => {
                     setShowUpdateModal(true);
@@ -37,13 +45,13 @@ function App() {
               }
             }
           }}
-        
+
         />
       </div>
       {/* When I click a button inside this component showCreateModal to true */}
       <div className='modal' style={{ display: showCreateModal === false && 'none' }}>
         <NoteCreateForm overrides={{
-          NoteCreateFormCloseBtn: { 
+          NoteCreateFormCloseBtn: {
             onClick: () => {
               setShowCreateModal(false);
               console.log('setShowCreateModal to False triggered');
@@ -52,10 +60,10 @@ function App() {
         }} />
       </div>
       <div className='modal' style={{ display: showUpdateModal === false && 'none' }}>
-        <NoteUpdateForm 
-          note={updateNote} 
+        <NoteUpdateForm
+          note={updateNote}
           overrides={{
-            NoteUpdateFormCloseBtn: { 
+            NoteUpdateFormCloseBtn: {
               onClick: () => {
                 setShowUpdateModal(false);
                 console.log('setShowUpdateModal to False triggered');

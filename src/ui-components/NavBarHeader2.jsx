@@ -181,8 +181,8 @@ export default function NavBarHeader2(props) {
           shrink="0"
           size="default"
           isDisabled={false}
-          variation="link"
-          children="Log in"
+          variation="primary"
+          children="Create New Post"
           {...getOverrideProps(overrides, "Button39493466")}
         ></Button>
         <Button
@@ -191,8 +191,8 @@ export default function NavBarHeader2(props) {
           shrink="0"
           size="default"
           isDisabled={false}
-          variation="primary"
-          children="Sign up"
+          variation="link"
+          children="Sign Out"
           {...getOverrideProps(overrides, "Button39493467")}
         ></Button>
       </Flex>
