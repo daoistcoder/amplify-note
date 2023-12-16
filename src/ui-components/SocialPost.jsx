@@ -266,6 +266,7 @@ export default function SocialPost(props) {
               {...getOverrideProps(overrides, "MyIcon29766865")}
             ></MyIcon>
             <MyIcon
+              style={{ cursor: 'pointer' }}
               width="24px"
               height="24px"
               display="block"
@@ -276,8 +277,8 @@ export default function SocialPost(props) {
               shrink="0"
               position="relative"
               padding="0px 0px 0px 0px"
-              type="more_vert"
-              {...getOverrideProps(overrides, "MyIcon29766866")}
+              type="edit"
+              {...getOverrideProps(overrides, "SocialPostEditBtn")}
             ></MyIcon>
           </Flex>
         </Flex>

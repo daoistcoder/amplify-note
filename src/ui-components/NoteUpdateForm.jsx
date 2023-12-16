@@ -8,6 +8,7 @@
 import * as React from "react";
 import { Button, Flex, Grid, TextField } from "@aws-amplify/ui-react";
 import { fetchByPath, getOverrideProps, validateField } from "./utils";
+import MyIcon from "./MyIcon";
 import { generateClient } from "aws-amplify/api";
 import { getNote } from "../graphql/queries";
 import { updateNote } from "../graphql/mutations";
@@ -143,6 +144,23 @@ export default function NoteUpdateForm(props) {
       {...getOverrideProps(overrides, "NoteUpdateForm")}
       {...rest}
     >
+      <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+        <MyIcon
+              style={{ cursor: 'pointer' }}
+              width="24px"
+              height="24px"
+              display="block"
+              gap="unset"
+              alignItems="unset"
+              justifyContent="unset"
+              overflow="hidden"
+              shrink="0"
+              position="relative"
+              padding="0px 0px 0px 0px"
+              type="close"
+              {...getOverrideProps(overrides, "NoteUpdateFormCloseBtn")}
+            ></MyIcon>
+      </div>
       <TextField
         label="Title"
         isRequired={false}

@@ -8,10 +8,11 @@
 import * as React from "react";
 import { Button, Flex, Grid, TextField } from "@aws-amplify/ui-react";
 import { fetchByPath, getOverrideProps, validateField } from "./utils";
+import MyIcon from "./MyIcon";
 import { generateClient } from "aws-amplify/api";
 import { createNote } from "../graphql/mutations";
 
-import { CloseIcon } from "../App";
+// import { CloseIcon } from "../App" - to be used in future;
 
 const client = generateClient();
 export default function NoteCreateForm(props) {
@@ -128,12 +129,27 @@ export default function NoteCreateForm(props) {
       {...rest}
     >
       <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-        <Button 
+        <MyIcon
+              style={{ cursor: 'pointer' }}
+              width="24px"
+              height="24px"
+              display="block"
+              gap="unset"
+              alignItems="unset"
+              justifyContent="unset"
+              overflow="hidden"
+              shrink="0"
+              position="relative"
+              padding="0px 0px 0px 0px"
+              type="close"
+              {...getOverrideProps(overrides, "NoteCreateFormCloseBtn")}
+            ></MyIcon>
+        {/* <Button 
           style={{ padding: '3px 1px 1px 6px' }}
           {...getOverrideProps(overrides, "NoteCreateFormCloseBtn")}
         >
           <CloseIcon />
-        </Button>
+        </Button> */}
       </div>
 
       <TextField
