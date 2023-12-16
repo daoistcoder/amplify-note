@@ -79,7 +79,13 @@ export default function SocialPostCollection(props) {
   }, [pageIndex, maxViewed, setMaxViewed]);
   return (
     <div>
-      <Button variation="primary" style={{ position: 'absolute', right: '23%', top: '12%' }}>Add New Post</Button>
+      <Button 
+        variation="primary"
+        style={{ position: 'absolute', right: '23%', top: '12%' }}
+        {...getOverrideProps(overrides, "AddPostBtn")}
+      >
+        Add New Post
+      </Button>
       <Collection
         type="list"
         isSearchable="true"
