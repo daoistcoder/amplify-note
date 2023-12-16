@@ -3,6 +3,8 @@ import { SocialPostCollection, NavBarHeader, NoteCreateForm, NoteUpdateForm } fr
 // import { HiMiniXMark } from "react-icons/hi2"; - to be used in future
 import { useState } from 'react';
 
+import { withAuthenticator } from '@aws-amplify/ui-react'
+
 function App() {
   // using useState hook show modals
   const [showCreateModal, setShowCreateModal] = useState(false);
@@ -73,5 +75,5 @@ function App() {
 //   />
 // ); - to be used in future
 
-export default App;
+export default withAuthenticator(App);
 

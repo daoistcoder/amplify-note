@@ -10,6 +10,11 @@
       "StackName": "amplify-daoistnotes-staging-34508",
       "StackId": "arn:aws:cloudformation:us-east-1:129636848691:stack/amplify-daoistnotes-staging-34508/81e364d0-9bc5-11ee-9c40-0a4e2ccf23d1",
       "AmplifyAppId": "d2jxobr1zye0yf"
+    },
+    "categories": {
+      "auth": {
+        "DaoistNotes": {}
+      }
     }
   }
 }
