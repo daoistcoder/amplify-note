@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { SocialPostCollection, NavBarHeader, NoteCreateForm, NoteUpdateForm } from './ui-components';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{backgroundColor: '#F5F5F5'}}>
+      <NavBarHeader width={'100%'} marginBottom={'20px'} />
+      <div className='container'>
+        <SocialPostCollection />
+      </div>
+      <div className='modal' style={{display: 'none'}}>
+        <NoteCreateForm />
+      </div>
+      <div className='modal' style={{display: 'none'}}>
+        <NoteUpdateForm />
+      </div>
     </div>
   );
 }
